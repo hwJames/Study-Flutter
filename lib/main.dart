@@ -14,16 +14,29 @@ class FirstRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text('First Route'),
       ),
-      body: Center(
-        child: RaisedButton(
-          child: Text('Open route'),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => SecondRoute()),
-            );
-          },
-        ),
+      body: Column(
+        children: [
+          Text('Test'),
+          TextField(
+            obscureText: true,
+            decoration:
+                InputDecoration(border: OutlineInputBorder(), labelText: 'ID'),
+          ),
+          TextField(
+            obscureText: true,
+            decoration:
+                InputDecoration(border: OutlineInputBorder(), labelText: 'PWD'),
+          ),
+          RaisedButton(
+            child: Text('Open route'),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SecondRoute()),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
