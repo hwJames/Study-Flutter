@@ -3,11 +3,20 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MaterialApp(
     title: 'Navigation Basics',
-    home: FirstRoute(),
+    home: FistApp(),
   ));
 }
 
-class FirstRoute extends StatelessWidget {
+class FistApp extends StatefulWidget {
+  FirstRoute createState() => new FirstRoute();
+}
+
+class FirstRoute extends State<FistApp> {
+  bool _cb = false;
+  bool _sw = false;
+  void _cbChanged(bool value) => setState(() => _cb = value);
+  void _swChanged(bool value) => setState(() => _sw = value);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +36,11 @@ class FirstRoute extends StatelessWidget {
             decoration:
                 InputDecoration(border: OutlineInputBorder(), labelText: 'PWD'),
           ),
+          Checkbox(
+            value: _cb,
+            onChanged: _cbChanged,
+          ),
+          Switch(value: _sw, onChanged: _swChanged),
           RaisedButton(
             child: Text('Open route'),
             onPressed: () {
